@@ -50,19 +50,12 @@ def main() -> None:
             last_maintenance="2024-01-15T10:30:00",
             is_operational=False
         )
+        print(invalid_station)
     except ValidationError as e:
         print("Expected validation error:")
         for error in e.errors():
             print(error['msg'])
         return
-    print("Valid station created:")
-    print(f"ID: {invalid_station.station_id}")
-    print(f"Name: {invalid_station.name}")
-    print(f"Crew: {invalid_station.crew_size} people")
-    print(f"Power: {invalid_station.power_level}%")
-    print(f"Oxygen: {invalid_station.oxygen_level}%")
-    print(f"Status: {("Operational" if invalid_station.is_operational
-                      is True else "Not Operational")}\n")
 
 
 if __name__ == "__main__":

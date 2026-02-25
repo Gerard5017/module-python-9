@@ -81,19 +81,12 @@ def main() -> None:
             witness_count=1,
             message_received="Greetings from Zeta Reticuli"
         )
+        print(invalid_contact)
     except ValidationError as e:
         print("Expected validation error:")
         for error in e.errors():
             print(error['msg'])
         return
-    print("Valid contact report:")
-    print(f"ID: {invalid_contact.contact_id}")
-    print(f"Type: {invalid_contact.contact_type.value}")
-    print(f"Location: {invalid_contact.location}")
-    print(f"Signal: {invalid_contact.signal_strength}/10")
-    print(f"Duration: {invalid_contact.duration_minutes} minutes")
-    print(f"Witnesses: {invalid_contact.witness_count}")
-    print(f"Message: '{invalid_contact.message_received}'")
 
 
 if __name__ == "__main__":
